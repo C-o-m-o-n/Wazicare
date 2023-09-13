@@ -14,7 +14,8 @@ export default {
         brown: "#CO9591",
         lightGreen: '#7ac996',
         green: '#006d58',
-        proYellow: '#feb60d'
+        proYellow: '#feb60d',
+        irisBlue: '#5A4FCF'
       },
       boxShadow: {
         panelShadow: "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;",

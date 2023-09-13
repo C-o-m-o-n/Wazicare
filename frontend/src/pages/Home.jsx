@@ -5,6 +5,9 @@ import hero3 from "../assets/images/therapy/therapist3.jpg";
 import icon1 from "../assets/images/icon02.png";
 import icon2 from "../assets/images/icon01.png";
 import icon3 from "../assets/images/icon03.png";
+import featureImg from "../assets/images/cover/t3.jpg";
+import avatarIcon from "../assets/images/people/p2.png";
+import { FcVideoCall } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import About from "../components/About/About";
@@ -163,23 +166,90 @@ const Home = () => {
           </div>
         </div>
       </section>
-       {/* how it works section end */}
+      {/* how it works section end */}
 
-        {/* about section  */}
-        <About />
-         {/* about section ends  */}
+      {/* about section  */}
+      <About />
+      {/* about section ends  */}
 
-         {/* services  */}
-         <section>
-          <div className="container">
-            <div className="xl:w-[470px] mx-auto">
-              <h2 className="heading text-center">Services We Offer</h2>
+      {/* services  */}
+      <section>
+        <div className="container">
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className="heading text-center">Services We Offer</h2>
+          </div>
+
+          <ServiceList />
+        </div>
+      </section>
+      {/* services end */}
+
+      {/* Feature section */}
+      <section>
+        <div className="container">
+          <div className="flex items-center justify-between flex-col lg:flex-row">
+            {/* feature content */}
+            <div className="xl:w-[670px]">
+              <h2 className="heading">
+                Get virtual session <br /> anytime
+              </h2>
+              <ul className="pl-4">
+                <li className="text__para">
+                  1. Schedule the appointment directly.
+                </li>
+                <li className="text__para">
+                  2. Search for your physician/therapist here and contact their
+                  office.
+                </li>
+                <li className="text__para">
+                  3. View our physicians/therapist who are accepting new
+                  patients, use the online scheduling tool to select an
+                  appointment time.
+                </li>
+              </ul>
+
+              <Link to="/">
+                <button className="btn">Laern More</button>
+              </Link>
             </div>
 
-            <ServiceList />
+            {/* Feature image */}
+            <div className="relative z-10 xl:w-[770px] flex justify-end sm:justify-center mt-[50px] lg:mt-0">
+              <img src={featureImg} className="rounded w-[450px] " alt="" />
+
+              <div className="md:w-[150px] lg:w-[248px] bg-white absolute bottom-[50px] left-0 md:bottom-[100px] md:left-5 z-20 p-1 lg:pb-2 lg:pt-2 lg:pb-[26px] rounded-[10px]">
+                <div className="flex items-center justify-around">
+                  <div className="flex items-center gap-[6px] lg:gap-3">
+                    <p className="text-[10px] leading-[10px] lg:text-[14px] lg:leading-5 text-primary font-[600]">
+                      Tue, 15
+                    </p>
+                    <p className="text-[10px] leading-[10px] lg:text-[14px] lg:leading-5 text-textColor font-[400]">
+                      9:00AM{" "}
+                    </p>
+                  </div>
+
+                  <span className="w-5 h-5 lg:w-[34px] lg:h-[34px] flex items-center justify-center bg-proYellow rounded py-1 px-[6px] lg:py-3 lg:px-[9px]">
+                    {/* <span className="w-9 h-9 flex items-center justify-center"> */}
+                    {/* <img src={videoIcon} alt="" /> */}
+                    <FcVideoCall size={25} style={{ color: "brown" }} />
+                    {/* </span> */}
+                  </span>
+                </div>
+
+                <div className="w-[65px] lg:w-[96px] bg-[#ccf0f3] py-1 px-2 lg:py-[6px] lg:px-[10px] text-[8px] leading-[8px] lg:text-[12px] lg:leading-4 text-irisBlue font-[500] mt-2 lg:mt-4 rounded-full">
+                  Consoltation
+                </div>
+
+                <div className="flex items-center gap-[6px] lg:gap-[10px] mt-2 lg:mt-[18px]">
+                  <img className="w-10 h-10 rounded-full" src={avatarIcon} alt="" />
+                  <h4 className="text-[10px] leading-3 lg:text-[16px] lg:leading-[22px] font-[700] text-textColor">Collins Maine</h4>
+                </div>
+              </div>
+            </div>
           </div>
-         </section>
-         {/* services end */}
+        </div>
+      </section>
+      {/* Feature section end */}
     </>
   );
 };
