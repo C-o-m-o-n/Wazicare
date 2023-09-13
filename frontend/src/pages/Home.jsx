@@ -7,6 +7,7 @@ import icon2 from "../assets/images/icon01.png";
 import icon3 from "../assets/images/icon03.png";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import About from "../components/About/About";
 
 const Home = () => {
   return (
@@ -161,6 +162,11 @@ const Home = () => {
           </div>
         </div>
       </section>
+       {/* how it works section end */}
+
+        {/* about section  */}
+        <About />
+         {/* about section ends  */}
     </>
   );
 };
