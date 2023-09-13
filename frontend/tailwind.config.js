@@ -11,7 +11,10 @@ export default {
         textColor: "#41464f",
         headingColor: "#008080",
         primary: "#35b5ac",
-        brown: "#CO9591"
+        brown: "#CO9591",
+        lightGreen: '#7ac996',
+        green: '#006d58',
+        proYellow: '#feb60d'
       },
       boxShadow: {
         panelShadow: "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;",
