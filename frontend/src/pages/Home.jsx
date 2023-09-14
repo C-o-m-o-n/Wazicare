@@ -7,12 +7,14 @@ import icon2 from "../assets/images/icon01.png";
 import icon3 from "../assets/images/icon03.png";
 import featureImg from "../assets/images/cover/t3.jpg";
 import avatarIcon from "../assets/images/people/p2.png";
+import faqImg from "../assets/images/people/p5.jpg";
 import { FcVideoCall } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import About from "../components/About/About";
 import ServiceList from "../components/Services/ServiceList";
 import DoctorList from "../components/Doctors/DoctorList";
+import FaqList from "../components/Faq/FaqList";
 
 const Home = () => {
   return (
@@ -264,6 +266,21 @@ const Home = () => {
         </div>
       </section>
       {/* Doctor's section end */}
+
+      {/* faq section */}
+      <section>
+        <div className="container">
+          <div className="flex justify-between gap-[50px] lg:gap-0">
+            <div className="w-1/2 hidden md:block"><img src={faqImg} alt="" /></div>
+
+            <div className="w-full md:w-1/2">
+              <h2 className="heading">The commonly asked questions</h2>
+              <FaqList />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* faq section ends */}
 
     </>
   );
