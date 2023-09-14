@@ -1,12 +1,15 @@
-import therapist1 from "../images/therapy/therapist3.jpg";
-import therapist2 from "../images/therapy/therapist6.jpg";
-import therapist3 from "../images/therapy/therapist4.jpg";
+import therapist1 from "../images/cover/t7.jpg";
+import therapist2 from "../images/cover/t6.jpg";
+import therapist3 from "../images/cover/t4.jpg";
+import therapist4 from "../images/therapy/therapist3.jpg";
+import therapist5 from "../images/people/p2.png";
+import therapist6 from "../images/therapy/therapist.jpg";
 
-export const doctors = [
+export const therapist = [
   {
     id: "01",
     name: "Dr. Zawadi Ahmed",
-    specialty: "Psychologist",
+    specialization: "Psychologist",
     avgRating: 4.8,
     totalRating: 172,
     photo: therapist1,
@@ -15,21 +18,51 @@ export const doctors = [
   },
   {
     id: "02",
-    name: "Dr. Karen Johns",
-    specialty: "Therapist",
+    name: "Dr. Sarah Hill",
+    specialization: "Psychologist",
     avgRating: 4.8,
-    totalRating: 472,
-    photo: doctorImg02,
-    totalPatients: 600,
+    totalRating: 172,
+    photo: therapist4,
+    totalPatients: 400,
     hospital: "Wazicare Treatment Center",
   },
   {
     id: "03",
+    name: "Dr. Karen Johns",
+    specialization: "Physiotherapist",
+    avgRating: 4.8,
+    totalRating: 472,
+    photo: therapist2,
+    totalPatients: 600,
+    hospital: "Wazicare Treatment Center",
+  },
+  {
+    id: "04",
     name: "Dr. Farid Uddin",
-    specialty: "Physiotherapist",
+    specialization: "Physiotherapist",
     avgRating: 4.8,
     totalRating: 769,
-    photo: doctorImg03,
+    photo: therapist3,
+    totalPatients: 1050,
+    hospital: "Wazicare Treatment Center",
+  },
+  {
+    id: "05",
+    name: "Dr. Collins Maine",
+    specialization: "Psychologist",
+    avgRating: 4.8,
+    totalRating: 769,
+    photo: therapist5,
+    totalPatients: 1050,
+    hospital: "Wazicare Treatment Center",
+  },
+  {
+    id: "06",
+    name: "Dr. Karen Homes",
+    specialization: "Physiotherapist",
+    avgRating: 4.8,
+    totalRating: 769,
+    photo: therapist6,
     totalPatients: 1050,
     hospital: "Wazicare Treatment Center",
   },
