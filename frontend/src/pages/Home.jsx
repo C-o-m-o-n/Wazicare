@@ -103,7 +103,7 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] lg:mt-[55px]">
-          <div className="py-[30px] px-5">
+          <div className="py-[30px] px-5 hover:border hover:border-solid">
             <div className="flex items-center justify-center">
               <img src={icon1} alt="" />
             </div>
@@ -125,7 +125,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="py-[30px] px-5">
+          <div className="py-[30px] px-5 hover:border hover:border-solid">
             <div className="flex items-center justify-center">
               <img src={icon2} alt="" />
             </div>
@@ -147,7 +147,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="py-[30px] px-5">
+          <div className="py-[30px] px-5 hover:border hover:border-solid">
             <div className="flex items-center justify-center">
               <img src={icon3} alt="" />
             </div>

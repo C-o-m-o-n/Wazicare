@@ -100,7 +100,7 @@ const Footer = () => {
             </h2>
             <ul>
               {quickLinks01.map((item, index) => (
-                <li key={index} className='mb-4'>
+                <li key={index} className='mb-4 hover:border hover:border-solid hover:border-primary hover:rounded'>
                   <Link to={item.path} className='text-[16px] leading-7 font-[400]'>{item.display}</Link>
                 </li>
               ))}
@@ -114,7 +114,7 @@ const Footer = () => {
             </h2>
             <ul>
               {quickLinks02.map((item, index) => (
-                <li key={index} className='mb-4'>
+                <li key={index} className='mb-4 hover:border hover:border-solid hover:border-primary hover:rounded'>
                   <Link to={item.path} className='text-[16px] leading-7 font-[400]'>{item.display}</Link>
                 </li>
               ))}
@@ -128,7 +128,7 @@ const Footer = () => {
             </h2>
             <ul>
               {quickLinks03.map((item, index) => (
-                <li key={index} className='mb-4'>
+                <li key={index} className='mb-4 hover:border hover:border-solid hover:border-primary hover:rounded'>
                   <Link to={item.path} className='text-[16px] leading-7 font-[400]'>{item.display}</Link>
                 </li>
               ))}
