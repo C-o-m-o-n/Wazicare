@@ -15,6 +15,7 @@ import About from "../components/About/About";
 import ServiceList from "../components/Services/ServiceList";
 import DoctorList from "../components/Doctors/DoctorList";
 import FaqList from "../components/Faq/FaqList";
+import Testimonial from "../components/Testimonial/Testimonial";
 
 const Home = () => {
   return (
@@ -281,6 +282,18 @@ const Home = () => {
         </div>
       </section>
       {/* faq section ends */}
+
+    {/* Tesimonials */}
+    <section>
+      <div className="container">
+      <div className="xl:w-[470px] mx-auto">
+            <h2 className="heading text-center">What our clients say</h2>
+          </div>
+
+          <Testimonial />
+      </div>
+    </section>
+    {/* Tesimonials end */}
 
     </>
   );
