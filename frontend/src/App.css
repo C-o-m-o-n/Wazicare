@@ -45,6 +45,7 @@ body {
   background: white;
   box-shadow: 3px 3px -8px 3px #ddd;
 }
+
 @media only screen and (max-width: 768px) {
   .navigation {
     width: 100%;
@@ -53,7 +54,7 @@ body {
     top: 0;
     left: 0;
     z-index: 100;
-    background: #00000084;
+    /* background: #00000084; */
     display: none;
   }
   .menu {
