@@ -43,7 +43,7 @@ const Header = () => {
 
   const toggleMenu = () => menuRef.current.classList.toggle('show__menu');
   return (
-    <header className="header flex items-center bg-red-200" ref={headerRef}>
+    <header className="header flex items-center bg-emerald-200" ref={headerRef}>
       <div className="container">
         <div className="flex items-center justify-between mt-5 px-5">
           {/* Logo */}
