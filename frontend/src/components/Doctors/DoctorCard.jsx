@@ -21,7 +21,7 @@ const DoctorCard = ({item}) => {
           <span className="flex items-center gap-[6px] text-[14px] leading-6 lg:text-[16px] leading-7 font-semibold text-textColor">
             <img src={starIcon} alt="" /> {avgRating}
           </span>
-          <span className='text-[14px] leading-6 lg:text-[16px] leading-7 font-[400] text-textColor'>({totalRating})</span>
+          <span className='text-[14px] leading-6 lg:text-[16px] leading-7 font-[400] text-textColor'>  ({totalRating})</span>
         </div>
       </div>
 
