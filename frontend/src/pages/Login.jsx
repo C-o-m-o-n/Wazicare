@@ -1,62 +1,57 @@
-import React from 'react'
 import {  Link } from "react-router-dom";
-
+import { useState } from "react";
 
 const Login = () => {
+  const [formData, setFomrData] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setFomrData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
-<div className="container">
-<div className="xl:w-[470px] mx-auto">
-            <h2 className="heading text-center">Login</h2>
-        </div>
+    <section className="px-5 lg:px-0">
+      <div className="w-full max-w-[570px] mx-auto rounded-lg shadow-md md:p-10">
+        <h3 className="text-textColor text-[22px] leading-9 font-bold mb-10">
+          Hello! <span className="text-primary"> Welcome</span> Back{" "}
+        </h3>
 
-<form className='max-w-lg mx-auto shadow px-2 py-5 rounded overflow-hidden' action="" method="post" autocomplete="off">
-                <div class="space-y-2">
-                    <div >
-                        <label  class="text-gray-600 mb-2 block">Username</label>
-                        <input type="text" name="username" id="email" 
-         
-                            class="rounded-full text-primary block w-full border border-gray-300 px-4 py-4
-                            text-sm  focus:ring-0 focus:border-primary placeholder-gray-400 font-600 "
-                            placeholder="Enter your username"></input>
-                    </div>
+        <form className="py-4 md:py-0">
+          <div className="mb-5">
+            <input
+              type="email"
+              placeholder="Enter Your Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border-b border-solid border-primary focus:outline-none focus:border-b-primary text-[16px] leading-7 text-textColor placeholder:text-textColor rounded-md cursor-pointer"
+              required
+            />
+          </div>
+          <div className="mb-5">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border-b border-solid border-primary focus:outline-none focus:border-b-primary text-[16px] leading-7 text-textColor placeholder:text-textColor rounded-md cursor-pointer"
+              required
+            />
+          </div>
 
-                    <div>
-                        <label  class="text-gray-600 mb-2 block">Password</label>
-                        <input type="password" name="password" id="password"
-                            class="block w-full border border-gray-300 px-4 py-4 rounded-full text-primary text-sm  
-                            focus:ring-0 focus:border-primary placeholder-gray-400"
-                            placeholder="*********"></input>
-                    </div>
-                    
-                </div>
-                <div class="flex items-center justify-between mt-6">
-                    <div class="flex items-center">
-                        <input type="checkbox" name="remember" id="remember"
-                            class="text-primary focus:ring-0 rounded-sm cursor-pointer "></input>
-                        <label  class="text-gray-600 ml-3 cursor-pointer">Remember me</label>
-                    </div>
-                    <a href="#" class="text-primary">Forgot password</a>
-                </div>
-                <div class="mt-4">
-                    <button type="submit"
-                        class="block rounded-full text-center text-white bg-primary 
-                        border border-primary hover:bg-transparent hover:text-primary px-10 py-4
-                         transition uppercase font-roboto font-medium">Login</button>
-                </div>
-            <div class="mt-4 flex gap-4">
-                <a href="#"
-                    class="w-1/2 py-4 rounded-full text-center text-white bg-blue-800 font-roboto font-medium text-sm hover:bg-blue-700">facebook</a>
-                <a href="#"
-                    class="w-1/2 py-4 rounded-full text-center text-white bg-red-600 font-roboto font-medium text-sm hover:bg-red-500">google</a>
-            </div>
+          <div className="mt-7">
+            <button type="submit" className="w-full bg-primary text-white text-[18px] leading-[30px] border border-solid border-primary rounded-lg px-4 py-3 hover:text-primary hover:bg-white">Login</button>
+          </div>
 
-            <p class="mt-4 text-center text-gray-600">Don't have an account? 
-                    <Link to="/register" class="text-primary">Register now</Link>
-                    </p>
-            </form>
-      
-        </div>
-  )
-}
+          <p className="mt-5 text-textColor text-center">
+            Don&apos;t have an account? <Link to='/register' className="text-primary font-medium ml-1">Register</Link>
+            </p>
+        </form>
+      </div>
+    </section>
+  );
+};
 
-export default Login
+export default Login;
