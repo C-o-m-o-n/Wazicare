@@ -12,12 +12,12 @@ const Login = () => {
 
   return (
     <section className="px-5 lg:px-0">
-      <div className="w-full max-w-[570px] mx-auto rounded-lg shadow-md md:p-10">
+      <div className="w-full max-w-[570px] mx-auto rounded-lg shadow-md md:p-10 sm:text-center">
         <h3 className="text-textColor text-[22px] leading-9 font-bold mb-10">
           Hello! <span className="text-primary"> Welcome</span> Back{" "}
         </h3>
 
-        <form className="py-4 md:py-0">
+        <form className="py-4 md:py-0 sm:p-5">
           <div className="mb-5">
             <input
               type="email"
