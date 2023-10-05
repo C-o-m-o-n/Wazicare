@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import bodyParser from "body-parser";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
+import doctorRoutes from "./routes/doctor.js";
 
 dotenv.config();
 const app = express();
@@ -21,6 +22,7 @@ app.use(cors({
 }));
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/doctors', doctorRoutes)
 
 //Routes
 app.get('/', (req,res) => {
