@@ -3,35 +3,30 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import bodyParser from "body-parser";
 
 dotenv.config();
-
 const app = express();
-const port = process.env.PORT || 8000;
 
-const corsOptions = {
-  origin:true
-};
+//Middlewares
+app.use(express.json());
+app.use(cookieParser())
+app.use(express.urlencoded({extended: false}))
+app.use(bodyParser.json())
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://localhost:5000'],
+  credentials: true
+}));
 
+//Routes
 app.get('/', (req,res) => {
-  res.send('Api is working')
+  res.send('Home Page')
 });
 
-mongoose.set('strictQuery', false);
-const connectDB = async() => {
-  try {
-    mongoose.connect( process.env.MONGO_URI
-    )
-  } catch (err) {
-    
-  }
-}
-
-//middleware
-app.use(express.json());
-app.use(cookieParser());
-app.use(cors(corsOptions))
-
-app.listen(port, () => {
-  console.log('Server is running on port: ' + port)
-})
+// Connect to DB and start server
+const PORT = process.env.PORT || 5000;
+mongoose.connect(process.env.MONGO_URI).then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running at port: ${PORT}`)
+  })
+}).catch((err) => console.log(err))
