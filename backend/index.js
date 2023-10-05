@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyParser from "body-parser";
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 
 dotenv.config();
 const app = express();
@@ -19,6 +20,7 @@ app.use(cors({
   credentials: true
 }));
 app.use('/api/auth', authRoutes)
+app.use('/api/users', userRoutes)
 
 //Routes
 app.get('/', (req,res) => {
