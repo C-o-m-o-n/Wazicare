@@ -74,7 +74,7 @@ export const login = async(req,res) => {
       user = patient;
     }
     if(therapist) {
-      user = patient;
+      user = therapist;
     }
 
     // Check if user exists
