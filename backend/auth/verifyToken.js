@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import Doctor from '../models/DoctorSchema.js';
 import User from '../models/UserSchema.js';
 
-
 export const authenticate = async (req, res, next) => {
 
   // get token from headers
@@ -30,4 +29,25 @@ export const authenticate = async (req, res, next) => {
     return res.status(401).json({success: false, message:'Invalid Token'})
   }
 
+};
+
+export const restrict = roles => async(req,res,next) => {
+  const userId = req.userId;
+
+  let user;
+
+  const patient = await User.findById(userId);
+  const therapist = await Doctor.findById(userId);
+
+  if(patient) {
+    user = patient;
+  }
+  if(therapist) {
+    user = therapist;
+  }
+
+  if(!roles.includes(user.role)) {
+    return res.status(401).json({success: false, message: 'You are not authorized'})
+  }
+  next();
 }
