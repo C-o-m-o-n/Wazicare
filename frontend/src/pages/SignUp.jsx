@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import signupImg from "../assets/images/signup.gif";
 import avatar from "../assets/images/people/b6.jpg";
 import { Link } from "react-router-dom";
+import uploadImageToCloudinary from "../../utils/uploadCloudinary";
+import { BASE_URL } from "../config";
+
 
 const SignUp = () => {
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const [formData, setFomrData] = useState({
         name: "",
@@ -22,12 +26,23 @@ const SignUp = () => {
       const handleFileInput = async(e) => { 
         const file = e.target.files[0];
 
-        //later add cloudinary
+        //add cloudinary
+        const data = await uploadImageToCloudinary(file);
 
-        console.log(file);
+        setPreviewUrl(data.url);
+        setSelectedFile(data.url);
+        setFomrData({...formData, photo: data.url});
       }
     const submitHandler = async(e) => { 
-        e.preventDefault();
+    
+      setLoading(true);
+      e.preventDefault();
+
+      try {
+        // const res = await fetch(`${BASE_URL}/auth/register`)
+      } catch (error) {
+        
+      }
     }
     
   return (
