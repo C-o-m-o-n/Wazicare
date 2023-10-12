@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import featureImg from "../../assets/images/therapy/therapist5.jpg";
-import { formateDate } from '../../../utils/formatDate';
+import {formateDate } from '../../utils/formatDate.jsx';
 import { AiFillStar } from 'react-icons/ai';
 import FeedbackForm from './FeedbackForm';
 

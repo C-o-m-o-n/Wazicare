@@ -17,7 +17,7 @@ export const register = async(req,res) => {
     // if therapist or patient
     if(role === 'patient') {
       user = await User.findOne({email});
-    } else if (role === 'therapist') {
+    } else if (role === 'doctor') {
       user = await Doctor.findOne({email});
     }
 
@@ -42,7 +42,7 @@ export const register = async(req,res) => {
       gender,
     })
   }
-  if(role === 'therapist') {
+  if(role === 'doctor') {
     user = new Doctor({
       name,
       email,

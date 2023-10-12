@@ -1,9 +1,11 @@
 import { useState } from "react";
 import signupImg from "../assets/images/signup.gif";
 import avatar from "../assets/images/people/b6.jpg";
-import { Link } from "react-router-dom";
-import uploadImageToCloudinary from "../../utils/uploadCloudinary";
+import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
+import {toast} from 'react-toastify';
+import HashLoader from 'react-spinners/HashLoader';
+import uploadImageToCloudinary from "../utils/uploadCloudinary";
 
 
 const SignUp = () => {
@@ -12,7 +14,7 @@ const SignUp = () => {
     const [previewUrl, setPreviewUrl] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const [formData, setFomrData] = useState({
+    const [formData, setFormData] = useState({
         name: "",
         email: "",
         password: "",
@@ -20,28 +22,51 @@ const SignUp = () => {
         gender: "",
         role: "patient"
       });
-    const handleChange = (e) => {
-        setFomrData({ ...formData, [e.target.name]: e.target.value });
-      };
-      const handleFileInput = async(e) => { 
-        const file = e.target.files[0];
 
-        //add cloudinary
+      const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+      };
+
+      const handleFileInput = async event => { 
+        const file = event.target.files[0];
+
         const data = await uploadImageToCloudinary(file);
 
-        setPreviewUrl(data.url);
-        setSelectedFile(data.url);
-        setFomrData({...formData, photo: data.url});
+       setPreviewUrl(data.url);
+       setSelectedFile(data.url);
+       setFormData({...formData, photo: data.url});
       }
+ 
     const submitHandler = async(e) => { 
     
       setLoading(true);
       e.preventDefault();
 
       try {
-        // const res = await fetch(`${BASE_URL}/auth/register`)
+        const res = await fetch(`http://localhost:5000/api/auth/register`, {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        })
+
+        const { message } = await res.json();
+
+        console.log(message);
+
+        if(!res.ok) {
+          throw new Error(message);
+        }
+
+        setLoading(false);
+        toast.success(message);
+        navigate('/login')
       } catch (error) {
-        
+        toast.error(error.message);
+        setLoading(false);
       }
     }
     
@@ -132,13 +157,13 @@ const SignUp = () => {
               </div>
 
               <div className="mb-5 flex items-center gap-3">
-                <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primary flex items-center justify-center">
-                  <img
-                    src={avatar}
-                    alt=""
-                    className="w-[50px] h-[50px] rounded-full"
-                  />
-                </figure>
+              {selectedFile && <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primary flex items-center justify-center">
+                <img
+                  src={previewUrl}
+                  alt=""
+                  className="w-[50px] h-[50px] rounded-full"
+                />
+              </figure>}
 
                 <div className="relative w-[130px] h-[50px]">
                   <input
@@ -159,7 +184,9 @@ const SignUp = () => {
               </div>
 
               <div className="mt-7">
-            <button type="submit" className="w-full bg-primary text-white text-[18px] leading-[30px] border border-solid border-primary rounded-lg px-4 py-3 hover:text-primary hover:bg-white">Register</button>
+            <button disabled={loading && true} type="submit" className="w-full bg-primary text-white text-[18px] leading-[30px] border border-solid border-primary rounded-lg px-4 py-3 hover:text-primary hover:bg-white">
+               { loading ? <HashLoader size={35} color="#ffffff" /> : 'Register'}
+            </button>
           </div>
 
           <p className="mt-5 text-textColor text-center">
