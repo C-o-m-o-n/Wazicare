@@ -87,7 +87,7 @@ const Header = () => {
                 <Link
                   to={`${
                     role === "doctor"
-                      ? "/doctors/profilr/me"
+                      ? "/doctors/profile/me"
                       : "/users/profile/me"
                   }`} className="flex align-center justify-center gap-4"
                 >
