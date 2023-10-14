@@ -1,6 +1,5 @@
 import { useState } from "react";
 import signupImg from "../assets/images/signup.gif";
-import avatar from "../assets/images/people/b6.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
 import { toast } from "react-toastify";

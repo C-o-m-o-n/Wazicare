@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
-import userImg from '../../assets/images/people/p2.png';
 import { NavLink, Link } from "react-router-dom";
-import {BiMenu} from "react-icons/bi";
+import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
 
 const navLinks = [
@@ -30,31 +29,34 @@ const Header = () => {
 
   const handleStickyHeader = () => {
     window.addEventListener("scroll", () => {
-      if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        headerRef.current.classList.add('sticky__header');
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current.classList.add("sticky__header");
       } else {
-        headerRef.current.classList.remove('sticky__header');
+        headerRef.current.classList.remove("sticky__header");
       }
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     handleStickyHeader();
 
-    return () => window.addEventListener("scroll", handleStickyHeader)
-  },[])
+    return () => window.addEventListener("scroll", handleStickyHeader);
+  }, []);
 
-  const toggleMenu = () => menuRef.current.classList.toggle('show__menu');
+  const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
   return (
     <header className="header flex items-center bg-emerald-200" ref={headerRef}>
       <div className="container">
         <div className="flex items-center justify-between mt-5 px-5">
           {/* Logo */}
           <div>
-          <Link to="/">
-            <h4 className="text-primary font-[800] text-[25px]">
-              <span>Wazi</span>Care
-            </h4>
+            <Link to="/">
+              <h4 className="text-primary font-[800] text-[25px]">
+                <span>Wazi</span>Care
+              </h4>
             </Link>
           </div>
 
@@ -79,18 +81,32 @@ const Header = () => {
           </div>
 
           {/* nav right */}
-          <div className="flex items-center gap-4">
-            <div className="hidden">
-              <Link to='/'>
-                <figure className="w-[35px] h-[35px] flex items-center justify-center rounded-full cursor-pointer">
-                  <img src={userImg} className="w-full rounded-full" alt="patient" />
-                </figure>
+          <div className="flex items-center justify-center gap-4">
+            {token && user ? (
+              <div>
+                <Link
+                  to={`${
+                    role === "doctor"
+                      ? "/doctors/profilr/me"
+                      : "/users/profile/me"
+                  }`} className="flex align-center justify-center gap-4"
+                >
+                  <figure className="w-[35px] h-[35px] flex items-center justify-center rounded-full cursor-pointer">
+                    <img
+                      src={user?.photo}
+                      className="w-full rounded-full"
+                      alt="patient"
+                    />
+                  </figure>
+                </Link>
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="bg-primary py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">
+                  Login
+                </button>
               </Link>
-            </div>
-            {/* <h1>{user?.name}</h1> */}
-            <Link to="/login">
-              <button className="bg-primary py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">Login</button>
-            </Link>
+            )}
 
             <span className="md:hidden" onClick={toggleMenu}>
               <BiMenu className="w-6 h-6 text-primary cursor-pointer" />
