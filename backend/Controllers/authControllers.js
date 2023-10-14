@@ -17,13 +17,14 @@ export const register = async(req,res) => {
     // if therapist or patient
     if(role === 'patient') {
       user = await User.findOne({email});
-    } else if (role === 'doctor') {
+    } else if (role === 'therapist') {
       user = await Doctor.findOne({email});
     }
 
     // Check if the email is already registered
     if (user) {
-      return res.status(400).json({ error: 'Email is already registered' });
+      return res.status(400).json({ message: 'Email is already registered, please login', status: false});
+
     }
 
     //hash password
