@@ -87,7 +87,8 @@ const Profile = ({user}) => {
             value={formData.email}
             onChange={handleChange}
             className="w-full pr-4 py-3 border-b border-solid border-primary focus:outline-none focus:border-b-primary text-[16px] leading-7 text-textColor placeholder:text-textColor cursor-pointer"
-            required
+            aria-readOnly
+            readOnly
           />
         </div>
         <div className="mb-5">
@@ -127,7 +128,7 @@ const Profile = ({user}) => {
               htmlFor="customFile"
               className="absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] text-[15px] leading-6 overflow-hidden bg-primary text-textColor font-semibold rounded-lg truncate cursor-pointer"
             >
-              Upload Photo
+              {selectedFile ? selectedFile.name : "Upload Photo"}
             </label>
           </div>
         </div>

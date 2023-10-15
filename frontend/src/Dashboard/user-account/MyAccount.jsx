@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import userImg from "../../assets/images/people/p4.jpg";
 import { authContext } from "../../context/AuthContext";
 import Profile from "./Profile";
 import MyBooking from "./MyBooking";
@@ -36,7 +35,7 @@ const MyAccount = () => {
               <div className="flex items-center justify-center">
                 <figure className="w-[100px] h-[100px] rounded-full border-2 border-solid border-primary">
                   <img
-                    src={userImg}
+                    src={userData.photo}
                     alt=""
                     className="w-full h-full rounded-full"
                   />
@@ -45,10 +44,10 @@ const MyAccount = () => {
 
               <div className="text-center mt-4">
                 <h3 className="text-[18px] leading-[30px] text-textColor font-bold">
-                  Muhib Ramar
+                  {userData.name}
                 </h3>
                 <p className="text-textColor text-[15px] leading-6 font-medium">
-                  example@gmail.com
+                  {userData.email}
                 </p>
               </div>
 
