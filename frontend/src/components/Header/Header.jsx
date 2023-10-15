@@ -86,8 +86,8 @@ const Header = () => {
               <div>
                 <Link
                   to={`${
-                    role === "doctor"
-                      ? "/doctors/profile/me"
+                    role === "therapist"
+                      ? "/therapist/profile/me"
                       : "/users/profile/me"
                   }`} className="flex align-center justify-center gap-4"
                 >
