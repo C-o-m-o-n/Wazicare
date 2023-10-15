@@ -1,6 +1,8 @@
 import { useContext, useState } from 'react';
 import userImg from '../../assets/images/people/p4.jpg';
 import { authContext } from '../../context/AuthContext';
+import Profile from './Profile';
+import MyBooking from './MyBooking';
 
 
 const MyAccount = () => {
@@ -12,7 +14,8 @@ const MyAccount = () => {
     dispatch({ type: 'LOGOUT'})
   }
   return (
-    <div className='max-w-[1170px] px-5 mx-auto'>
+    <section>
+      <div className='max-w-[1170px] px-5 mx-auto'>
       <div className='grid md:grid-cols-3 gap-10'>
 
         <div className="pb-[50px] px-[30px] rounded-md">
@@ -49,9 +52,21 @@ const MyAccount = () => {
               Profile Settings
             </button>
           </div>
+
+          {
+            tab === 'bookings' && <MyBooking />
+          }
+          {
+            tab === 'settings' && <Profile />
+          }
         </div>
+
+
+
+
       </div>
     </div>
+    </section>
   )
 }
 
