@@ -18,7 +18,7 @@ const Dashboard = () => {
     loading,
     error,
   } = useGetProfile(`${BASE_URL}doctors/profile/me`);
-  console.log(userData)
+
 
   const logoutHandler = () => {
     dispatch({ type: "LOGOUT" });

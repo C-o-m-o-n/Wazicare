@@ -91,17 +91,6 @@ const Profile = ({user}) => {
             readOnly
           />
         </div>
-        <div className="mb-5">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="w-full pr-4 py-3 border-b border-solid border-primary focus:outline-none focus:border-b-primary text-[16px] leading-7 text-textColor placeholder:text-textColor cursor-pointer"
-          
-          />
-        </div>
 
 
         <div className="mb-5 flex items-center gap-3">

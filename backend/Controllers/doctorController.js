@@ -122,7 +122,6 @@ export const getDoctorAppointments = async (req, res) => {
 
     res.status(200).json({ success: true, message: 'Gotten Appointments', data: users });
   } catch (error) {
-    console.log(error.message);
     return res.status(500).json({ success: false, message: 'Something went wrong in getting doctor appointments' });
   }
 };
