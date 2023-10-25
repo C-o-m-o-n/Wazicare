@@ -1,5 +1,6 @@
 import Booking from "../models/BookingSchema.js";
 import Doctor from "../models/DoctorSchema.js";
+import mongoose from 'mongoose';
 
 export const updateDoctor = async (req, res) => {
   const id = req.params.id;
@@ -85,6 +86,7 @@ export const getAllDoctors = async (req, res) => {
 
 export const getDoctorProfile = async(req, res) => {
   const doctorId = req.userId;
+  console.log(doctorId);
 
   try {
     const doctor = await Doctor.findById(doctorId);
@@ -94,10 +96,14 @@ export const getDoctorProfile = async(req, res) => {
     }
 
     const {password, ...rest} = doctor._doc;
-    const appointments = await Booking.findById({doctor: doctorId })
+
+    const doctorObjectId = new mongoose.Types.ObjectId(doctorId);
+
+    const appointments = await Booking.find({doctor: doctorObjectId })
 
     res.status(200).json({ success:true, message: 'Gotten profile info', data: {...rest, appointments} })
   } catch(err) {
+    console.log(err.message);
     return res.status(404).json({success:false, message: "Something went wrong in getting profile info"})
   }
 }

@@ -22,6 +22,7 @@ const navLinks = [
   },
 ];
 const Header = () => {
+  
   const headerRef = useRef(null);
   const menuRef = useRef(null);
 
@@ -86,16 +87,16 @@ const Header = () => {
               <div>
                 <Link
                   to={`${
-                    role === "therapist"
-                      ? "/therapist/profile/me"
+                    role === "doctor"
+                      ? "/doctors/profile/me"
                       : "/users/profile/me"
                   }`} className="flex align-center justify-center gap-4"
                 >
-                  <figure className="w-[35px] h-[35px] flex items-center justify-center rounded-full cursor-pointer">
+                  <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
                     <img
                       src={user?.photo}
                       className="w-full rounded-full"
-                      alt="patient"
+                      alt=""
                     />
                   </figure>
                 </Link>

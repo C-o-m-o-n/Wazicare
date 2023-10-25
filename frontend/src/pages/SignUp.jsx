@@ -129,7 +129,7 @@ const SignUp = () => {
                     className="text-textColor font-semibold text-[15px] leading-7 px-4 py-3 focus:outline-none"
                   >
                     <option value="patient">Patient</option>
-                    <option value="doctor">Therapist</option>
+                    <option value="therapist">Therapist</option>
                   </select>
                 </label>
 
