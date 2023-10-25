@@ -92,7 +92,7 @@ const Header = () => {
                       : "/users/profile/me"
                   }`} className="flex align-center justify-center gap-4"
                 >
-                  <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
+                  <figure className="w-[35px] h-[35px] sm:w-[15px] sm:h-[15px] md:w-[25px] md:h-[25px] rounded-full cursor-pointer">
                     <img
                       src={user?.photo}
                       className="w-full rounded-full"

@@ -23,7 +23,7 @@ const DoctorBooking = () => {
 
       {
         !loading && !error && appointments.length === 0 && <h2 className="mt-5 text-center leading-7 text-[20px] font-semibold text-primary">
-          You do not have any therapist booked!</h2>
+          You do not have any appointments yet!</h2>
       }
     </div>
   )

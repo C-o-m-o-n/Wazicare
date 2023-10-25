@@ -66,7 +66,7 @@ const DoctorProfile = ({user}) => {
   };
   
   return (
-    <div className="mt-10">
+    <div className="mt-10 px-5">
       <form onSubmit={submitHandler}>
         <div className="mb-5">
           <input
@@ -116,7 +116,7 @@ const DoctorProfile = ({user}) => {
             />
             <label
               htmlFor="customFile"
-              className="absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] text-[15px] leading-6 overflow-hidden bg-primary text-textColor font-semibold rounded-lg truncate cursor-pointer"
+              className="absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] text-[15px] leading-6 overflow-hidden bg-primary text-white font-semibold rounded-lg truncate cursor-pointer"
             >
               {selectedFile ? selectedFile.name : "Upload Photo"}
             </label>
